@@ -40,7 +40,11 @@ To download and run the app
 
 ## Support the project
 
+Original author:
 <a href="https://www.buymeacoffee.com/igorkulman" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+Me for ChatGPT integration
+<a href="https://www.buymeacoffee.com/teomatteo" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## Contributing
 
@@ -53,6 +57,7 @@ The app is currently localized into English and Chinese. If you want to add loca
 ## Author
 
 - **Igor Kulman** - *Initial work* - igor@kulman.sk
+- **Matteo Comisso** - *ChatGPT Integration* - matteo@mcomisso.me
 
 See also the list of [contributors](https://github.com/igorkulman/iOSLocalizationEditor/contributors) who participated in this project.
 
