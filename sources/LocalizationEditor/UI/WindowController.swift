@@ -52,7 +52,7 @@ protocol WindowControllerToolbarDelegate: AnyObject {
      Invoked when user requests reload selected folder
      */
     func userDidRequestReloadData()
-}
+ }
 
 final class WindowController: NSWindowController {
 
@@ -63,6 +63,7 @@ final class WindowController: NSWindowController {
     @IBOutlet private weak var selectButton: NSPopUpButton!
     @IBOutlet private weak var filterButton: NSPopUpButton!
     @IBOutlet private weak var newButton: NSToolbarItem!
+//    @IBOutlet private weak var translateButton: NSToolbarItem!
 
     // MARK: - Properties
 
@@ -93,6 +94,7 @@ final class WindowController: NSWindowController {
         filterButton.toolTip = "filter".localized
         selectButton.toolTip = "string_table".localized
         newButton.toolTip = "new_translation".localized
+//        translateButton.toolTip = "translate".localized
     }
 
     private func setupSearch() {
@@ -123,6 +125,7 @@ final class WindowController: NSWindowController {
         filterButton.isEnabled = true
         selectButton.isEnabled = true
         newButton.isEnabled = true
+//        translateButton.isEnabled = true
     }
 
     private func setupDelegates() {
@@ -151,6 +154,13 @@ final class WindowController: NSWindowController {
 
         delegate?.userDidRequestFilterChange(filter: filter)
     }
+
+//    @IBAction private func translate(_ sender: Any) {
+//        guard translateButton.isEnabled else {
+//            return
+//        }
+////        delegate?.()
+//    }
 
     @IBAction private func openFolder(_ sender: Any) {
         delegate?.userDidRequestFolderOpen()

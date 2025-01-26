@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 /**
 Protocol for announcing changes to the toolbar. Needed because the VC does not have direct access to the toolbar (handled by WindowController)
@@ -46,6 +47,7 @@ final class ViewController: NSViewController {
     private var currentFilter: Filter = .all
     private var currentSearchTerm: String = ""
     private let dataSource = LocalizationsDataSource()
+    private let translationService = TranslationService()
     private var presendedAddViewController: AddViewController?
     private var currentOpenFolderUrl: URL?
 
@@ -105,8 +107,8 @@ final class ViewController: NSViewController {
 
         let actionsColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(FixedColumn.actions.rawValue))
         actionsColumn.title = "actions".localized
-        actionsColumn.maxWidth = 48
-        actionsColumn.minWidth = 32
+        actionsColumn.maxWidth = 96
+        actionsColumn.minWidth = 64
         tableView.addTableColumn(actionsColumn)
 
         tableView.reloadData()
@@ -252,6 +254,34 @@ extension ViewController: ActionsCellDelegate {
         filter()
         tableView.scrollToVisible(rect)
     }
+
+    func userDidRequestTranslations(of key: String) {
+        guard let mainLanguage = dataSource.mainLocalization?.language else { return }
+        guard let row = dataSource.getRowForKey(key: key) else { return }
+        guard let targetLanguages = dataSource.data[key]?.keys else { return }
+        let localizationKey = dataSource.getLocalization(language: mainLanguage, row: row)
+        let translatable = localizationKey.value
+
+        var targets = Set(targetLanguages)
+        targets.remove(mainLanguage)
+
+        Task {
+            for targetLanguage in targets {
+                let response = try await translationService.translate(
+                    message: translatable,
+                    from: mainLanguage,
+                    to: targetLanguage
+                )
+                self.dataSource.updateLocalization(
+                    language: targetLanguage,
+                    key: key,
+                    with: response.translation,
+                    message: "ChatGPT Translated"
+                )
+            }
+            self.tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - WindowControllerToolbarDelegate
@@ -261,6 +291,11 @@ extension ViewController: WindowControllerToolbarDelegate {
      Invoked when user requests adding a new translation
      */
     func userDidRequestAddNewTranslation() {
+//        let view = AddView { [weak self] key, message in
+//            self?.userDidAddTranslation(key: key, message: message)
+//        }
+//        let hosting = NSHostingController(rootView: view)
+//        presentAsSheet(hosting)
         let addViewController = storyboard!.instantiateController(withIdentifier: "Add") as! AddViewController
         addViewController.delegate = self
         presendedAddViewController = addViewController

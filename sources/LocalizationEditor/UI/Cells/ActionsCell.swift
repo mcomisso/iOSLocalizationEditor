@@ -10,11 +10,13 @@ import Cocoa
 
 protocol ActionsCellDelegate: AnyObject {
     func userDidRequestRemoval(of key: String)
+    func userDidRequestTranslations(of key: String)
 }
 
 final class ActionsCell: NSTableCellView {
     // MARK: - Outlets
 
+    @IBOutlet private weak var translateButton: NSButton!
     @IBOutlet private weak var deleteButton: NSButton!
 
     // MARK: - Properties
@@ -29,6 +31,16 @@ final class ActionsCell: NSTableCellView {
 
         deleteButton.image = NSImage(named: NSImage.stopProgressTemplateName)
         deleteButton.toolTip = "delete".localized
+
+        translateButton.image = NSImage(systemSymbolName: "globe", accessibilityDescription: "Translate")
+    }
+
+    @IBAction func translateClicked(_ sender: NSButton) {
+        guard let key = key else {
+            return
+        }
+
+        delegate?.userDidRequestTranslations(of: key)
     }
 
     @IBAction private func removalClicked(_ sender: NSButton) {

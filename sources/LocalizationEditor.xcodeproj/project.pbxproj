@@ -13,6 +13,10 @@
 		A15A5A4221D908C400D3C791 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A4121D908C400D3C791 /* Parser.swift */; };
 		A15A5A4721D90AC600D3C791 /* ParserIsolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A4521D90AC600D3C791 /* ParserIsolationTests.swift */; };
 		A15A5A4921DA249400D3C791 /* ParserTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A4821DA249400D3C791 /* ParserTypes.swift */; };
+		B9564ADD2D45C0FA00208ACA /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = B9564ADC2D45C0FA00208ACA /* Logging */; };
+		B9564ADF2D45C10A00208ACA /* TranslationsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9564ADE2D45C10600208ACA /* TranslationsProvider.swift */; };
+		B9564AE22D45C14F00208ACA /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9564AE12D45C14F00208ACA /* ChatGPTSwift */; };
+		B9564AE42D46461900208ACA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9564AE32D46461900208ACA /* AddView.swift */; };
 		F31FA2072231025C00E20A3F /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31FA2062231025C00E20A3F /* Flag.swift */; };
 		F3261F64222EA955006838C3 /* ActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3261F63222EA955006838C3 /* ActionsCell.swift */; };
 		F3261F66222EA9BF006838C3 /* ActionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3261F65222EA9BF006838C3 /* ActionsCell.xib */; };
@@ -89,6 +93,8 @@
 		A15A5A4121D908C400D3C791 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		A15A5A4521D90AC600D3C791 /* ParserIsolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserIsolationTests.swift; sourceTree = "<group>"; };
 		A15A5A4821DA249400D3C791 /* ParserTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTypes.swift; sourceTree = "<group>"; };
+		B9564ADE2D45C10600208ACA /* TranslationsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationsProvider.swift; sourceTree = "<group>"; };
+		B9564AE32D46461900208ACA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D644DC13283A3CB00031D188 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E0A395E526088744000189F7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E9CD53DA255B27AD0054EF79 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9564AE22D45C14F00208ACA /* ChatGPTSwift in Frameworks */,
+				B9564ADD2D45C0FA00208ACA /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				F3D9C95B20BECDBF0081830A /* LocalizationProvider.swift */,
+				B9564ADE2D45C10600208ACA /* TranslationsProvider.swift */,
 				F3D9C96D20BEEAA10081830A /* LocalizationsDataSource.swift */,
 				A15A5A4121D908C400D3C791 /* Parser.swift */,
 				A15A5A4821DA249400D3C791 /* ParserTypes.swift */,
@@ -242,6 +251,7 @@
 				F3D9C95F20BEDCFC0081830A /* Cells */,
 				F3D9C94B20BEC7460081830A /* Main.storyboard */,
 				F3960616223A4084006C7B16 /* AddViewController.swift */,
+				B9564AE32D46461900208ACA /* AddView.swift */,
 				F3D9C94720BEC7460081830A /* ViewController.swift */,
 				F3261F73222ED5FF006838C3 /* WindowController.swift */,
 			);
@@ -355,7 +365,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
 					F3D9C94120BEC7460081830A = {
@@ -387,6 +397,10 @@
 				ja,
 			);
 			mainGroup = F3D9C93920BEC7460081830A;
+			packageReferences = (
+				B9564ADB2D45C0FA00208ACA /* XCRemoteSwiftPackageReference "swift-log" */,
+				B9564AE02D45C14F00208ACA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+			);
 			productRefGroup = F3D9C94320BEC7460081830A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -477,6 +491,7 @@
 			files = (
 				A15A5A4921DA249400D3C791 /* ParserTypes.swift in Sources */,
 				F3D9C94820BEC7460081830A /* ViewController.swift in Sources */,
+				B9564ADF2D45C10A00208ACA /* TranslationsProvider.swift in Sources */,
 				F3960617223A4084006C7B16 /* AddViewController.swift in Sources */,
 				F3D9C96720BEDF640081830A /* KeyCell.swift in Sources */,
 				A15A5A4221D908C400D3C791 /* Parser.swift in Sources */,
@@ -486,6 +501,7 @@
 				172274D420D933970036EA4E /* LocalizationGroup.swift in Sources */,
 				F3D9C95C20BECDBF0081830A /* LocalizationProvider.swift in Sources */,
 				F3EF22072209D650000E8C80 /* String+Extensions.swift in Sources */,
+				B9564AE42D46461900208ACA /* AddView.swift in Sources */,
 				F3D9C96E20BEEAA10081830A /* LocalizationsDataSource.swift in Sources */,
 				F3261F74222ED5FF006838C3 /* WindowController.swift in Sources */,
 				F31FA2072231025C00E20A3F /* Flag.swift in Sources */,
@@ -674,20 +690,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LocalizationEditor/LocalizationEditor.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 310;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B82WJF6RBY;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LocalizationEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 2.9.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.LocalizationEditor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcomisso.LocalizationEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -699,20 +716,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = LocalizationEditor/LocalizationEditor.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 310;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B82WJF6RBY;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LocalizationEditor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 2.9.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.LocalizationEditor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mcomisso.LocalizationEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -733,7 +751,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.LocalizationEditorTests;
@@ -758,7 +776,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.LocalizationEditorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -798,6 +816,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B9564ADB2D45C0FA00208ACA /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.2;
+			};
+		};
+		B9564AE02D45C14F00208ACA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B9564ADC2D45C0FA00208ACA /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9564ADB2D45C0FA00208ACA /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		B9564AE12D45C14F00208ACA /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9564AE02D45C14F00208ACA /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3D9C93A20BEC7460081830A /* Project object */;
 }

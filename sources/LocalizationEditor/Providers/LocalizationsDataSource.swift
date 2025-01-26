@@ -30,18 +30,20 @@ enum Filter: Int, CaseIterable, CustomStringConvertible {
  Data source for the NSTableView with localizations
  */
 final class LocalizationsDataSource: NSObject {
+    typealias Key = String
+    typealias Language = String
     // MARK: - Properties
 
     private let localizationProvider = LocalizationProvider()
     private var localizationGroups: [LocalizationGroup] = []
     private var selectedLocalizationGroup: LocalizationGroup?
     private var languagesCount = 0
-    private var mainLocalization: Localization?
+    private(set) var mainLocalization: Localization?
 
     /**
      Dictionary indexed by localization key on the first level and by language on the second level for easier access
      */
-    private var data: [String: [String: LocalizationString?]] = [:]
+    private(set) var data: [Key: [Language: LocalizationString?]] = [:]
 
     /**
      Keys for the consumer. Depend on applied filter.
@@ -96,7 +98,7 @@ final class LocalizationsDataSource: NSObject {
 
             return lhs.translations.count > rhs.translations.count
         })
-        mainLocalization = localizations.first
+        mainLocalization = localizations.first(where: { $0.language == "en" })
         languagesCount = localizations.count
 
         data = [:]
